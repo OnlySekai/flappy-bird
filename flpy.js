@@ -61,7 +61,7 @@ function loser(){
 //draw
 
 function draw(){
-    ctx.drawImage(bg,0,0);
+    ctx.drawImage(bg,-55,0);
     for (let i=0;i<pipe.length;i++){
         distance=pipeNorth.height+pipe[i].y+gap;
         ctx.drawImage(pipeNorth,pipe[i].x,pipe[i].y);
