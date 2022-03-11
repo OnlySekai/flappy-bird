@@ -47,7 +47,7 @@ function loser(){
     if (locate.y>=bottom-bird.height) return true;
     for (let i=0;i<pipe.length;i++){
         if (locate.x+bird.width>pipe[i].x&&locate.x<pipe[i].x+pipeNorth.width&&
-            (locate.y<pipe[i].y+pipeNorth.height||locate.y+bird.height>distance))
+            (locate.y<pipe[i].y+pipeNorth.height||locate.y+bird.height>pipe[i].y+distance))
                 return true;
         if (pipe[i].x==5){
         point++;
@@ -63,9 +63,9 @@ function loser(){
 function draw(){
     ctx.drawImage(bg,-55,0);
     for (let i=0;i<pipe.length;i++){
-        distance=pipeNorth.height+pipe[i].y+gap;
+        distance=pipeNorth.height+gap;
         ctx.drawImage(pipeNorth,pipe[i].x,pipe[i].y);
-        ctx.drawImage(pipeSouth,pipe[i].x,distance);
+        ctx.drawImage(pipeSouth,pipe[i].x,pipe[i].y+distance);
         pipe[i].x--;
     }
     if (pipe[0].x<=-pipeNorth.width) 
